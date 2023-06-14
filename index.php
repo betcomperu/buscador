@@ -53,12 +53,43 @@
 					<tbody>
 					</tbody>
 				</table>
+				<div>
+
+					<h2>API</h2>
 
 
-			
+				</div>
+
+				<?php
+
+
+				$url = 'https://api.chucknorris.io/jokes/random';
+
+				// Inicia una sesión CURL
+				$ch = curl_init();
+
+				// Configura las opciones para la sesión CURL
+				curl_setopt($ch, CURLOPT_URL, $url);
+				curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+				curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+
+				// Ejecuta la sesión CURL y almacena el resultado en una variable
+				$resultado = curl_exec($ch);
+
+				// Cierra la sesión CURL
+				curl_close($ch);
+
+				// Decodifica el resultado JSON en un array asociativo
+				$chiste = json_decode($resultado, true);
+
+				?>
 
 			</div>
 
+			<div>
+
+			
+			</div>
 
 			<!--end of col-->
 		</div>
